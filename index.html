@@ -5,6 +5,12 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
     <link rel="stylesheet" href="./styles/main.css">
 </head>
 <main>
@@ -21,7 +27,7 @@
                         <h4>EN</h4>
                     </div>
                     <span class="dots"></span>
-                    <a target="_blank" href="https://maps.app.goo.gl/K3ku4jWGUTn8ez7v5">Kyiv, Mechnikova str, 14/1</a>
+                    <a target="_blank" href="https://maps.app.goo.gl/K3ku4jWGUTn8ez7v5" class="header-link-to-map">Kyiv, Mechnikova str, 14/1</a>
                     <span class="dots"></span>
                     <a href="tel:+0800211927" style="font-weight: 700">0800 211 927</a>
                     <span class="dots"></span>
@@ -66,14 +72,16 @@
     <section class="third-section">
         <div class="third-section-top-box">
             <div class="third-section-first-top-text">
-                <h3>Services</h3>
-                <svg width="12" height="12">
-                    <use href="./sprite.svg#arrow-right-blue"/>
-                </svg>
+                <a href="#">Services
+                    <svg width="12" height="12">
+                        <use href="./sprite.svg#arrow-right-blue"/>
+                    </svg>
+                </a>
+
             </div>
             <h1>What can we do better than others?</h1>
         </div>
-        <div class="third-section-top-cards">
+        <div class="third-section-cards">
             <div class="third-section-card">
                 <svg width="92" height="92">
                     <use href="./sprite.svg#icon1"/>
@@ -104,8 +112,6 @@
                 <h4>Instead of just providing legal services, we will hire a lawyer or a whole team that will fit into
                     the daily life of your company.</h4>
             </div>
-        </div>
-        <div class="third-section-bottom-cards">
             <div class="third-section-card">
                 <svg width="92" height="92">
                     <use href="./sprite.svg#icon4"/>
@@ -138,24 +144,68 @@
 </main>
 <div class="body">
     <section class="fourth-section">
-        <img src="./images/team1.png" alt="">
-        <div class="fourth-section-text">
-            <a href="#" class="h3caps">команда
-                <svg width="12" height="12">
-                    <use href="./sprite.svg#arrow-right-blue"/>
-                </svg>
-            </a>
-            <h1>Ми звикли брати на себе відповідальність
-                та завжди гарантуємо чесну,
-                вчасну допомогу, навіть у ситуаціях,
-                коли більшість безсилі.</h1>
-            <h4>Олександр Олександровський</h4>
-            <p>Керуючий партнер</p>
+        <div class="container">
+            <div class="slider">
+                <div class="slider-item">
+                    <img src="./images/team1.png" alt="">
+                    <div class="fourth-section-text">
+                        <a href="#" class="h3caps">команда
+                            <svg width="12" height="12">
+                                <use href="./sprite.svg#arrow-right-blue"/>
+                            </svg>
+                        </a>
+                        <h1>Ми звикли брати на себе відповідальність
+                            та завжди гарантуємо чесну,
+                            вчасну допомогу, навіть у ситуаціях,
+                            коли більшість безсилі.</h1>
+                        <h4>Олександр Олександровський</h4>
+                        <p>Керуючий партнер</p>
+                    </div>
+                </div>
+                <div class="slider-item">
+                    <img src="./images/team2.png" alt="">
+                    <div class="fourth-section-text">
+                        <a href="#" class="h3caps">команда
+                            <svg width="12" height="12">
+                                <use href="./sprite.svg#arrow-right-blue"/>
+                            </svg>
+                        </a>
+                        <h1>Ми звикли брати на себе відповідальність
+                            та завжди гарантуємо чесну,
+                            вчасну допомогу, навіть у ситуаціях,
+                            коли більшість безсилі.</h1>
+                        <h4>Evgeny Patrikov</h4>
+                        <p>Equity partner, Attorney-at-law</p>
+                    </div>
+                </div>
+                <div class="slider-item">
+                    <img src="./images/team3.png" alt="">
+                    <div class="fourth-section-text">
+                        <a href="#" class="h3caps">команда
+                            <svg width="12" height="12">
+                                <use href="./sprite.svg#arrow-right-blue"/>
+                            </svg>
+                        </a>
+                        <h1>Ми звикли брати на себе відповідальність
+                            та завжди гарантуємо чесну,
+                            вчасну допомогу, навіть у ситуаціях,
+                            коли більшість безсилі.</h1>
+                        <h4>Vladislav Melnik</h4>
+                        <p>Associate</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="fifth-section">
         <h3 class="h3caps">They already trust us</h3>
-        <img src="./images/grid1920.png" alt=""/>
+        <picture>
+            <source srcset="/images/grid375.png" media="(max-width: 375px)">
+            <source srcset="/images/grid768.png" media="(max-width: 768px)">
+            <source srcset="/images/grid1024.png" media="(max-width: 1024px)">
+            <source srcset="/images/grid1440.png" media="(max-width: 1440px)">
+            <img src="/images/grid1920.png" alt=""/>
+        </picture>
     </section>
     <section class="sixth-section">
         <div class="sixth-section-top-box">
@@ -233,5 +283,17 @@
             <a href="#" class="footer-bottom-link">contact@forstudy.space</a>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slider').slick({
+                dots: true,
+                arrows: false,
+                autoplay: false,
+                autoplaySpeed: 1500,
+            })
+        });
+    </script>
 </div>
 </html>

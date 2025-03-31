@@ -293,7 +293,7 @@ main {
   display: flex;
   flex-direction: column;
   row-gap: 60px;
-  padding-left: 160px;
+  padding: 0 160px;
 }
 
 .third-section-top-box {
@@ -303,35 +303,42 @@ main {
 }
 
 .third-section-first-top-text {
-  display: flex;
-  gap: 2px;
 
-  h3 {
+  a {
+    display: inline-block;
+    vertical-align: middle;
     font-weight: 700;
     font-size: 14px;
     line-height: 100%;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #24A3FF;
+    padding-right: 2px;
+
+    &:hover {
+      color: $color-accent;
+    }
   }
 }
 
-.third-section-top-cards {
-  display: flex;
-  gap: 60px;
-}
+//.third-section-top-cards {
+//  display: flex;
+//  gap: 60px;
+//}
 
-.third-section-bottom-cards {
-  display: flex;
+.third-section-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* По умолчанию 3 колонки */
   gap: 60px;
   padding-bottom: 60px;
+
 }
 
 .third-section-card {
   display: flex;
   flex-direction: column;
   row-gap: 15px;
-  max-width: 494px;
+  flex-basis: 33%;
 
   svg {
     margin-bottom: 15px;
@@ -352,33 +359,52 @@ main {
   }
 }
 
-.fourth-section {
-  margin: 30px auto;
+.slick-initialized .slick-slide {
+  display: flex;
+}
+
+.slider {
   max-width: 1600px;
   width: 100%;
   max-height: 298px;
   height: 100%;
+  margin: 0 auto;
+}
+
+.slider-item {
+  margin: 30px auto;
   border-radius: 12px;
   background-color: $color-gray-bg;
   display: flex;
+  justify-content: flex-start;
   gap: 30px;
 
   img {
     object-fit: cover;
     width: 400px;
-    height: 298px;
+    height: 307px;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
+    @media (max-width: 1440px) {
+      height: 100%;
+    }
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
   }
 
 }
 
 .fourth-section-text {
-  padding: 30px 0;
+  padding: 30px;
+  flex-basis: 80%;
 
   h1 {
     max-width: 1040px;
     padding: 5px 0 30px 0;
+    @media (max-width: 1050px) {
+      font-size: 36px;
+    }
   }
 
   h4 {
@@ -393,6 +419,25 @@ main {
     line-height: 22px;
     color: $color-gray-text;
   }
+}
+
+
+.container {
+  margin-bottom: 100px;
+  padding: 0 60px;
+}
+
+.slick-dots {
+  bottom: -76px;
+}
+
+.slick-dots li button:before {
+  font-size: 17px;
+  color: $color-active;
+}
+
+.slick-dots li.slick-active button:before {
+  color: $color-active;
 }
 
 .bottom-dividers {
@@ -426,32 +471,67 @@ main {
   justify-content: center;
   row-gap: 30px;
   margin-bottom: 60px;
+
+  img {
+    max-width: 1920px;
+    width: 100%;
+  }
 }
 
 .sixth-section {
   background: $color-gray-bg;
   padding: 30px 160px;
-  margin: 0 auto;
+  max-width: 1600px;
 }
 
 .sixth-section-cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding-bottom: 30px;
+}
+
+@media (max-width: 900px) {
+  .sixth-section-cards {
+    grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    grid-template-areas:
+        "card1 card2"
+        "card3 card3"; /* Нижняя карточка на всю ширину */
+    gap: 30px;
+  }
+  .sixth-section-card:nth-child(1) {
+    grid-area: card1;
+  }
+  .sixth-section-card:nth-child(2) {
+    grid-area: card2;
+  }
+  .sixth-section-card:nth-child(3) {
+    grid-area: card3;
+  }
+}
+
+@media (max-width: 500px) {
+  .sixth-section {
+    padding: 30px;
+  }
+  .sixth-section-cards {
+    grid-template-columns: 1fr;
+    grid-template-areas: "card1" "card2"
+        "card3";
+  }
 }
 
 .sixth-section-card {
   display: flex;
   flex-direction: column;
-  width: 514px;
-  height: 430px;
+  width: 100%;
   border-radius: 8px;
   background: white;
 
   img {
-    object-fit: cover;
-    width: 514px;
-    height: 200px;
+    width: 100%; /* Растягивается */
+    height: 200px; /* Растягивается */
+    object-fit: cover; /* Может исказить изображение */
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     margin-bottom: 30px;
@@ -598,6 +678,128 @@ footer {
     max-width: 400px;
   }
   .third-section {
-    padding-left: 60px;
+    padding: 0 60px;
+  }
+  .container {
+    padding: 0;
+  }
+  .fourth-section-text {
+    padding: 30px;
+    flex-basis: 70%;
+  }
+  .slick-dotted.slick-slider {
+    margin-bottom: 200px;
+  }
+  .slick-dots {
+    bottom: -179px;
+  }
+  .sixth-section {
+    padding: 30px 60px;
   }
 }
+
+@media (max-width: 1024px) {
+  .fourth-section-text {
+    padding: 30px;
+  }
+  .slick-initialized .slick-slide {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 60px;
+  }
+  .slider-item img {
+    object-fit: cover;
+    /* width: 400px; */
+    height: 500px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+  .slick-dotted.slick-slider {
+    margin-bottom: 750px;
+  }
+  .slick-dots {
+    bottom: -735px;
+  }
+}
+
+@media (max-width: 768px) {
+  .second-section {
+    flex-direction: column;
+    padding: 60px;
+  }
+  .second-section-left-box {
+    width: 100%;
+    overflow-x: auto;
+    gap: 30px;
+    flex-direction: row;
+    padding-right: 0;
+    border-right: 0;
+    padding-bottom: 56px;
+    border-bottom: 4px solid hsla(0, 0%, 100%, 0.3019607843);
+
+    h1 {
+      white-space: nowrap;
+    }
+  }
+  .third-section-cards {
+    grid-template-columns: repeat(2, 1fr); /* По умолчанию 3 колонки */
+  }
+  .dots {
+    display: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  .header {
+    flex-direction: column-reverse;
+    padding: 0;
+    svg{
+      padding: 15px 0 0 15px;
+    }
+  }
+  .header-right-container {
+    align-items: stretch;
+    row-gap: 16px;
+    background: #F5F5FA33;
+    justify-content: center;
+    padding: 15px;
+  }
+  .header-right-top-box svg {
+    display: none;
+  }
+  .header-right-bottom-box {
+    display: none;
+  }
+  .header-link-to-map{
+    display: none;
+  }
+  .header-right-top-box {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 375px) {
+  .first-section {
+    background-image: url('/images/small-symbol.png');
+  }
+  .second-section {
+    padding: 30px;
+  }
+  .second-section-left-box {
+    h1 {
+      white-space: nowrap;
+      font-size: 30px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .third-section-cards {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+
