@@ -261,7 +261,7 @@ main {
     transition: 0.3s all;
     cursor: pointer;
     -webkit-transition: 0.3s all;
-
+    white-space: nowrap;
     &:hover {
       -webkit-text-fill-color: transparent;
     }
@@ -513,16 +513,6 @@ main {
   }
 }
 
-@media (max-width: 500px) {
-  .sixth-section {
-    padding: 30px;
-  }
-  .sixth-section-cards {
-    grid-template-columns: 1fr;
-    grid-template-areas: "card1" "card2"
-        "card3";
-  }
-}
 
 .sixth-section-card {
   display: flex;
@@ -661,6 +651,14 @@ footer {
       color: $color-active-hover;
     }
   }
+  h4 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: $color-gray-text;
+    display: none;
+  }
 }
 
 
@@ -699,9 +697,15 @@ footer {
   .sixth-section {
     padding: 30px 60px;
   }
+  footer{
+    padding: 0 60px;
+  }
 }
 
 @media (max-width: 1024px) {
+  .first-section-text {
+    margin: 245px auto 389px;
+  }
   .fourth-section-text {
     padding: 30px;
   }
@@ -724,6 +728,9 @@ footer {
   }
   .slick-dots {
     bottom: -735px;
+  }
+  .second-section-right-box {
+    max-width: none;
   }
 }
 
@@ -798,6 +805,28 @@ footer {
   .slick-dotted.slick-slider {
     margin-bottom: 844px;
   }
+  .footer-bottom {
+    justify-content: center;
+    align-items: center;
+    padding: 21px 0 30px 0;
+    gap: 10px;
+    flex-direction: column;
+    h4{
+      display: block;
+    }
+  }
+  .footer-top{
+    display: block;
+    h4{
+      display: none;
+    }
+  }
+  .footer-container {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
 }
 
 @media (max-width: 571px) {
@@ -808,18 +837,50 @@ footer {
     bottom: -889px;
   }
 }
+@media (max-width: 500px) {
+  .sixth-section {
+    padding: 30px;
+  }
+  .sixth-section-cards {
+    grid-template-columns: 1fr;
+    grid-template-areas: "card1" "card2"
+        "card3";
+  }
+  .third-section {
+    padding: 30px;
+  }
+  .second-section{
+    margin-top: 0;
+  }
+  .second-section {
+    padding: 30px 30px 0 30px;
+    gap: 30px;
+  }
+  .third-section {
+    gap: 30px;
+  }
+  .third-section-cards {
+    gap: 30px;
+  }
+}
+
 @media (max-width: 400px) {
   .third-section-cards {
     grid-template-columns: 1fr;
   }
-
+  footer{
+    padding: 0 30px;
+  }
+  .first-section-text {
+    margin: 129px auto 159px;
+  }
+  .second-section-left-box {
+    padding-bottom: 26px;
+  }
 }
 @media (max-width: 375px) {
   .first-section {
     background-image: url('/images/small-symbol.png');
-  }
-  .second-section {
-    padding: 30px;
   }
   .second-section-left-box {
     h1 {
