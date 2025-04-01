@@ -123,7 +123,7 @@ main {
 }
 
 .first-section {
-  background-image: url('../images/big-symbol.png');
+  background-image: url('/images/big-symbol.png');
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -212,7 +212,7 @@ main {
   }
 }
 
-#header-bottom-right-text {
+.header-bottom-right-text {
   padding-bottom: 3px;
   border-bottom: 2px solid transparent;
   transition: 0.3s;
@@ -429,6 +429,9 @@ main {
 
 .slick-dots {
   bottom: -76px;
+  @media (max-width: 533px) {
+    bottom: -889px ;
+  }
 }
 
 .slick-dots li button:before {
@@ -713,7 +716,8 @@ footer {
     /* width: 400px; */
     height: 500px;
     border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 0;
   }
   .slick-dotted.slick-slider {
     margin-bottom: 750px;
@@ -777,8 +781,39 @@ footer {
   .header-right-top-box {
     justify-content: space-between;
   }
+  .slick-initialized .slick-slide {
+    margin: 30px;
+  }
+  .slick-dotted.slick-slider {
+    margin-bottom: 803px;
+  }
+  .slick-dots {
+    bottom: -791px;
+  }
+}
+@media (max-width: 635px) {
+  .slick-dots {
+    bottom: -837px;
+  }
+  .slick-dotted.slick-slider {
+    margin-bottom: 844px;
+  }
 }
 
+@media (max-width: 571px) {
+  .slick-dotted.slick-slider {
+    margin-bottom: 900px;
+  }
+  .slick-dots {
+    bottom: -889px;
+  }
+}
+@media (max-width: 400px) {
+  .third-section-cards {
+    grid-template-columns: 1fr;
+  }
+
+}
 @media (max-width: 375px) {
   .first-section {
     background-image: url('/images/small-symbol.png');
@@ -792,14 +827,12 @@ footer {
       font-size: 30px;
     }
   }
-}
-
-@media (max-width: 400px) {
-  .third-section-cards {
-    grid-template-columns: 1fr;
+  .fourth-section-text h1 {
+    font-size: 30px;
   }
-
 }
+
+
 
 
 

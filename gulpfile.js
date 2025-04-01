@@ -66,7 +66,7 @@ function sprite() {
 async function images() {
   const imagemin = (await import('gulp-imagemin')).default;
   return gulp.src(paths.images.src)
-    .pipe(gulpIf(isProduction, imagemin())) // Optimize images if in production mode
+    // .pipe(gulpIf(isProduction, imagemin())) // Optimize images if in production mode
     .pipe(gulp.dest(paths.images.dest))
     .pipe(browserSync.stream()); // Stream changes to BrowserSync
 }
@@ -107,15 +107,15 @@ function watch() {
   });
 
   // Watch tasks for changes
-  gulp.watch(paths.styles.src, styles); // Watch SCSS files
-  gulp.watch(paths.scripts.src, scripts); // Watch JS files
-  gulp.watch(paths.images.src, images); // Watch image files
-  gulp.watch(paths.sprite.src, sprite); // Watch sprite.svg file
-  gulp.watch(paths.pages.src, pages).on('change', browserSync.reload); // Watch HTML files
+  // gulp.watch(paths.styles.src, styles); // Watch SCSS files
+  // gulp.watch(paths.scripts.src, scripts); // Watch JS files
+  // // gulp.watch(paths.images.src, images); // Watch image files
+  // gulp.watch(paths.sprite.src, sprite); // Watch sprite.svg file
+  // gulp.watch(paths.pages.src, pages).on('change', browserSync.reload); // Watch HTML files
 }
 
 // Define complex tasks
-const build = gulp.series(gulp.parallel(styles, scripts, images, sprite, pages)); // Build task for production
+const build = gulp.series(gulp.parallel(styles, scripts, sprite, pages)); // Build task for production
 const dev = gulp.series(build, watch); // Development task with watch mode
 
 // Deploy task
@@ -128,7 +128,7 @@ const deployGithubPages = gulp.series(build, 'deploy');
 // Export tasks
 exports.styles = styles;
 exports.scripts = scripts;
-exports.images = images;
+// exports.images = images;
 exports.sprite = sprite;
 exports.pages = pages;
 exports.watch = watch;
